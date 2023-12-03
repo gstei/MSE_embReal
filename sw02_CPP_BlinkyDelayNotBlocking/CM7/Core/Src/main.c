@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "cpp_main.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -157,6 +157,7 @@ Error_Handler();
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	cpp_main();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
