@@ -41,6 +41,5 @@ SUBDIRS := \
 Common/Src \
 Core/Src \
 Core/Startup \
-Core_CPP/Src \
 Drivers/STM32H7xx_HAL_Driver/Src \
 
