@@ -1,0 +1,5 @@
+../Core/Src/main.c:92:5:main	3
+../Core/Src/main.c:155:6:MX_ETH_Init	2
+../Core/Src/main.c:204:6:MX_USART3_UART_Init	5
+../Core/Src/main.c:252:13:MX_GPIO_Init	1
+../Core/Src/main.c:283:6:Error_Handler	1
