@@ -162,9 +162,11 @@ Error_Handler();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
 	  HAL_HSEM_Take(HSEM_ID_1, 0);
 	  HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, 0);
+
+	  __SEV();
+
 	  HAL_Delay(500);
 	  HAL_HSEM_Release(HSEM_ID_1,0);
 	  HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, 1);

@@ -42,34 +42,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := C_AMP_SyncBlinky_12_02_CM7
+BUILD_ARTIFACT_NAME := C_AMP_SyncBlinkySEV_13_01_CM7
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-C_AMP_SyncBlinky_12_02_CM7.elf \
+C_AMP_SyncBlinkySEV_13_01_CM7.elf \
 
 MAP_FILES += \
-C_AMP_SyncBlinky_12_02_CM7.map \
+C_AMP_SyncBlinkySEV_13_01_CM7.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-C_AMP_SyncBlinky_12_02_CM7.list \
+C_AMP_SyncBlinkySEV_13_01_CM7.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: C_AMP_SyncBlinky_12_02_CM7.elf secondary-outputs
+main-build: C_AMP_SyncBlinkySEV_13_01_CM7.elf secondary-outputs
 
 # Tool invocations
-C_AMP_SyncBlinky_12_02_CM7.elf C_AMP_SyncBlinky_12_02_CM7.map: $(OBJS) $(USER_OBJS) C:\Users\matth\Documents\Matthias_Meyer\Schule\Master\3.\ Semester\TSM_EmbReal\03_workspace\C_AMP_SyncBlinky_12_02\CM7\STM32H745ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "C_AMP_SyncBlinky_12_02_CM7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\matth\Documents\Matthias_Meyer\Schule\Master\3. Semester\TSM_EmbReal\03_workspace\C_AMP_SyncBlinky_12_02\CM7\STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="C_AMP_SyncBlinky_12_02_CM7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C_AMP_SyncBlinkySEV_13_01_CM7.elf C_AMP_SyncBlinkySEV_13_01_CM7.map: $(OBJS) $(USER_OBJS) C:\Users\matth\Documents\Matthias_Meyer\Schule\Master\3.\ Semester\TSM_EmbReal\03_workspace\C_AMP_SyncBlinkySEV_13_01\CM7\STM32H745ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "C_AMP_SyncBlinkySEV_13_01_CM7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\matth\Documents\Matthias_Meyer\Schule\Master\3. Semester\TSM_EmbReal\03_workspace\C_AMP_SyncBlinkySEV_13_01\CM7\STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="C_AMP_SyncBlinkySEV_13_01_CM7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -78,14 +78,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-C_AMP_SyncBlinky_12_02_CM7.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "C_AMP_SyncBlinky_12_02_CM7.list"
+C_AMP_SyncBlinkySEV_13_01_CM7.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "C_AMP_SyncBlinkySEV_13_01_CM7.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) C_AMP_SyncBlinky_12_02_CM7.elf C_AMP_SyncBlinky_12_02_CM7.list C_AMP_SyncBlinky_12_02_CM7.map default.size.stdout
+	-$(RM) C_AMP_SyncBlinkySEV_13_01_CM7.elf C_AMP_SyncBlinkySEV_13_01_CM7.list C_AMP_SyncBlinkySEV_13_01_CM7.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
