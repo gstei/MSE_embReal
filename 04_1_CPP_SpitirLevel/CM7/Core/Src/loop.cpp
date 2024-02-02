@@ -16,7 +16,6 @@ SpiritLevelSinglAxis3LED SpiritLevelYAxis;
 
 void loop()
 {
-
     SpiritLevelYAxis.init();
 
 while (1)

@@ -46,12 +46,6 @@ private:
     uint16_t counter=0;
 
 public:
-    /**
-     * @brief Constructor for the StateMachine class.
-     * 
-     * @param Port The GPIO port to be used.
-     * @param Pin The GPIO pin to be used.
-     */
     StateMachine(GPIO_TypeDef *Port, uint16_t Pin, uint16_t freq_1, uint16_t freq_2) : currentState(State::INIT) {
         this->Port = Port;
         this->Pin = Pin;
@@ -171,32 +165,6 @@ while (1)
         fsm1.transition();
         fsm2.transition();
         #endif
-	// ObjAccGyroSensor.updateValues();
-
-	// ObjAccGyroSensor.Acc.getAVGValues(&AccAvgXAxis, &AccAvgYAxis, &AccAvgZAxis);
-    // ObjAccGyroSensor.Gyro.getAVGValues(&GyrAvgXAxis, &GyrAvgYAxis, &GyrAvgZAxis);
-
-	// if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin))
-    //     {
-    //     ObjAccGyroSensor.Acc.setZero();
-    //     ObjAccGyroSensor.Gyro.setZero();
-    //     }
-
-    // std::cout<<"Acc.: \t";
-    // std::cout<<"X-Axis: "<< AccAvgXAxis << (char) ASCII_TAB;
-    // std::cout<<"Y-Axis: "<< AccAvgYAxis << (char) ASCII_TAB;
-    // std::cout<<"Z-Axis: "<< AccAvgZAxis << (char) ASCII_TAB;
-
-
-    // std::cout<<"Gyro.: \t";
-    // std::cout<<"X-Axis: "<< GyrAvgXAxis << (char) ASCII_TAB;
-    // std::cout<<"Y-Axis: "<< GyrAvgYAxis << (char) ASCII_TAB;
-    // std::cout<<"Z-Axis: "<< GyrAvgZAxis;
-    // std::cout<< (char) ASCII_LF << (char) ASCII_CR;
-
-    // fflush(stdout);
-    // HAL_Delay(200);
-
 }
 }
 

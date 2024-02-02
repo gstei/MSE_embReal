@@ -43,9 +43,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  19 .debug_macro  0000795a  00000000  00000000  0006712f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_line   00018ef5  00000000  00000000  0006ea89  2**0
+ 20 .debug_line   00018ef6  00000000  00000000  0006ea89  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_str    0018cc54  00000000  00000000  0008797e  2**0
+ 21 .debug_str    0018cc54  00000000  00000000  0008797f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  22 .debug_frame  0001a36c  00000000  00000000  002145d4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -1385,7 +1385,7 @@ void SystemInit (void)
  8000e64:	8b9b      	ldrh	r3, [r3, #28]
  8000e66:	2b09      	cmp	r3, #9
  8000e68:	d841      	bhi.n	8000eee <_ZN12StateMachine10transitionEv+0x166>
-                    if(timer1.checkExpiration()) // Check if the timer has expired
+                    if(timer1.checkExpiration()) // Check if the timer has expired (at the beginning the timer is zero ==> expired)
  8000e6a:	f507 73b8 	add.w	r3, r7, #368	; 0x170
  8000e6e:	f5a3 73b6 	sub.w	r3, r3, #364	; 0x16c
  8000e72:	681b      	ldr	r3, [r3, #0]
@@ -1435,7 +1435,7 @@ void SystemInit (void)
  8000eea:	839a      	strh	r2, [r3, #28]
                 break;
  8000eec:	e156      	b.n	800119c <_ZN12StateMachine10transitionEv+0x414>
-                    counter=0;
+                    counter=0; // Reset the counter
  8000eee:	f507 73b8 	add.w	r3, r7, #368	; 0x170
  8000ef2:	f5a3 73b6 	sub.w	r3, r3, #364	; 0x16c
  8000ef6:	681b      	ldr	r3, [r3, #0]
@@ -1705,11 +1705,11 @@ void cpp_main()
  80011c0:	b580      	push	{r7, lr}
  80011c2:	b092      	sub	sp, #72	; 0x48
  80011c4:	af02      	add	r7, sp, #8
-    BlinkingLed Led1Blinker{LD1_GPIO_Port,LD1_Pin};
     // Set the frequency of the LED
 	Led1Blinker.setFrequency(0.5);
     #endif
     #ifdef LED_finite_state_machine
+    // check if console is working
 	std::cout << "Test1" <<  ASCII_LF<< ASCII_CR;;
  80011c6:	4917      	ldr	r1, [pc, #92]	; (8001224 <cpp_main+0x64>)
  80011c8:	4817      	ldr	r0, [pc, #92]	; (8001228 <cpp_main+0x68>)
@@ -1728,6 +1728,7 @@ void cpp_main()
  80011e6:	689b      	ldr	r3, [r3, #8]
  80011e8:	4618      	mov	r0, r3
  80011ea:	f021 f9e1 	bl	80225b0 <fflush>
+    // Initiate the state machines
     StateMachine fsm1(LD1_GPIO_Port,LD1_Pin,1,3);
  80011ee:	f107 0020 	add.w	r0, r7, #32
  80011f2:	2303      	movs	r3, #3
@@ -1744,11 +1745,11 @@ void cpp_main()
  8001208:	2202      	movs	r2, #2
  800120a:	490a      	ldr	r1, [pc, #40]	; (8001234 <cpp_main+0x74>)
  800120c:	f7ff fd94 	bl	8000d38 <_ZN12StateMachineC1EP12GPIO_TypeDefttt>
-        // Update the timer and toggle the LED when timer has triggerd event
         Led1Blinker.processBlinking();
         #endif
         #ifdef LED_finite_state_machine
         // fsm.printCurrentState();
+        //update the state machines
         fsm1.transition();
  8001210:	f107 0320 	add.w	r3, r7, #32
  8001214:	4618      	mov	r0, r3
