@@ -187,9 +187,8 @@ while (1)
 		}
 
         AccGyroSensor1.updateValues();
-
         // AccGyroSensor1.Gyro.getValue(0,MOTION_GYRO,&AccXAxis,&AccYAxis,&AccZAxis);
-        AccGyroSensor1.Gyro.getValue(0,MOTION_ACCELERO,&AccXAxis,&AccYAxis,&AccZAxis);
+        AccGyroSensor1.Acc.getValue(0,MOTION_ACCELERO,&AccXAxis,&AccYAxis,&AccZAxis);
         std::cout << AccXAxis <<  ",   " << AccYAxis << ",    " << AccZAxis << ASCII_LF<< ASCII_CR;;
         fflush(stdout);
         

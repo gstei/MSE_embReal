@@ -60,7 +60,6 @@ public:
                 fflush(stdout);
                 currentState = State::BLINK_1HZ;
                 break;
-            #include "NoneBlockSystemTickDelay.h" // Include the header file for NoneBlockSystemTickDelay
 
             case State::BLINK_1HZ:
                 if (counter < 10)
